@@ -540,41 +540,55 @@ body.dark-mode .header .profile-img.glow {
 }
 
 /* ✅ Stylish Theme Toggle Button */
+/* Ensure menu toggle and theme toggle are aligned properly */
+.header-toggle,
 .theme-toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: #00b223; /* Neon Green */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
+  color: var(--contrast-color);
+  background-color: #00b223;
+  font-size: 22px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: background 0.3s ease, transform 0.2s;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  right: 15px; /* Align to the right */
+  z-index: 9999;
+  transition: transform 0.2s ease-in-out;
 }
 
-.theme-toggle i {
-  font-size: 16px;
+/* Menu Toggle (☰) will be slightly lower */
+.header-toggle {
+  top: 65px; /* Move below the theme toggle */
 }
 
+/* Theme Toggle (☀️/🌙) will stay on top */
+.theme-toggle {
+  top: 15px;
+}
+
+/* Hover effect */
+.header-toggle:hover,
 .theme-toggle:hover {
-  background: #008f1d; /* Darker Green */
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-/* 🌞 Light Mode Button */
-body.light-mode .theme-toggle {
-  background: #007bff; /* Blue for light mode */
-  color: white;
-}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .header-toggle,
+  .theme-toggle {
+    right: 10px;
+  }
 
-body.light-mode .theme-toggle:hover {
-  background: #0056b3; /* Darker Blue */
+  .header-toggle {
+    top: 65px;
+  }
+
+  .theme-toggle {
+    top: 15px;
+  }
 }
 
 /*--------------------------------------------------------------
