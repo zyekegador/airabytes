@@ -47,12 +47,20 @@
   /**
    * Preloader
    */
-  const preloader = document.querySelector("#preloader");
-  if (preloader) {
-    window.addEventListener("load", () => {
-      preloader.remove();
-    });
-  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const preloader = document.getElementById("preloader");
+    const content = document.getElementById("content");
+
+    // Simulating a loading delay
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+      setTimeout(() => {
+        preloader.remove();
+        content.style.display = "block";
+      }, 600);
+    }, 2000); // Adjust this time if needed
+  });
 
   /**
    * Scroll top button
